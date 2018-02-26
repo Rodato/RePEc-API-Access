@@ -24,9 +24,9 @@ if __name__ == "__main__":
         if len(content)!=0:
             print("Storing data")
             All_Data=All_Data+content
-            print("Actualizando petición...")
+            print("Updating call...")
             payload["offset"]=payload["offset"]+25
-            print("Solicitud:", payload["offset"])
+            print("Solicitude:", payload["offset"])
             response = rq.get(url,params=payload)
             print ("url call form:", response.url)
             content = response.content
