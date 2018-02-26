@@ -1,3 +1,5 @@
+#Use this to know your IP address to get the access code.
+
 import requests as rq
 
 if __name__ == "__main__":
