@@ -1,8 +1,7 @@
 #In this program we get all the RePEc articles handles by JEL code.
 
-
 import requests as rq
-import json
+import simplejson as sj
 
 All_Data=list()
 
