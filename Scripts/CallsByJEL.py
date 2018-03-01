@@ -15,7 +15,7 @@ File_name=input("File name with formart (.txt, .json, .csv, etc...):")
 
 if __name__ == "__main__":
     url="https://api.repec.org/call.cgi"
-    payload={"code" : "RL2qVaps", "offset" : offset, "getrecentjel" : JEL, "repecservice" : "ideas"}
+    payload={"code" : code, "offset" : offset, "getrecentjel" : JEL, "repecservice" : "ideas"}
     response = rq.get(url,params=payload)
     print ("url call form:", response.url)
 
