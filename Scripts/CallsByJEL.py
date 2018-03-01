@@ -22,7 +22,6 @@ if __name__ == "__main__":
         print("Right call")
         content = response.content
         first_data=content.decode("utf-8")
-        #print("Contenido tipo:", type(y))
         y=first_data.replace("[", "")
         y=y.replace("]", "")
         y=y.split(",")
@@ -37,9 +36,8 @@ if __name__ == "__main__":
             print ("url call form:", response.url)
             content = response.content
             first_data=content.decode("utf-8")
-            if first_data=='[{"error":43}]': # [{"error":43}] is the API answer when not have data back
+            if first_data=='[{"error":43}]': # [{"error":43}] is the API answer when the call does not have data
                 break
-            #print("Contenido tipo:", type(y))
             y=first_data.replace("[", "")
             y=y.replace("]", "")
             y=y.split(",")
