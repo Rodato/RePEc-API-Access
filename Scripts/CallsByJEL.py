@@ -3,13 +3,13 @@
 import requests as rq
 import simplejson as sj
 
-All_Data=list()
+All_handles=list()
 
 code=input("Type your access code:")
 offset=input("offset:")
 offset=int(offset)
 JEL=input("JEL code:")
-File_name=input("File name with formart (.txt, .json, .csv, etc...):")
+File_name=input("Output file name (NameYouWant.txt):")
 
 
 if __name__ == "__main__":
@@ -28,10 +28,10 @@ if __name__ == "__main__":
         y=[i.replace('"', '') for i in y]
         while payload["offset"]<9999999999: #This is a default value
             print("Storing data")
-            All_Data=All_Data+y
-            print("Call update...")
+            All_handles=All_handles+y
+            print("Updating offset call...")
             payload["offset"]=payload["offset"]+25
-            print("Solicitude:", payload["offset"])
+            print("New offset value:", payload["offset"])
             response = rq.get(url,params=payload)
             print ("url call form:", response.url)
             content = response.content
@@ -44,10 +44,10 @@ if __name__ == "__main__":
             y=[i.replace('"', '') for i in y]
     else:
         print("Wrong call")
-        print(response.status_code)
+        print(response.status_code, "verify this code in requests web site: http://docs.python-requests.org/en/master/")
 
 f = open(File_name, 'w')
-sj.dump(All_Data, f)
+sj.dump(All_handles, f)
 f.close()
 
 print("¡All data was obtained!")
