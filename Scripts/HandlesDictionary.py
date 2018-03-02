@@ -9,6 +9,11 @@ file_name=input("File name with formart (.txt, .json, .csv, etc...):")
 code:input("Type your code access:")
 
 f=open(file_name,"r+")
+lines=f.read().split(',')
+lines = [i.replace('"', '') for i in lines]
+lines = [i.replace('[', '') for i in lines]
+lines = [i.replace(']', '') for i in lines]
+lines = [i.replace(' ', '') for i in lines]
 
 if __name__ == "__main__":
     url="https://api.repec.org/call.cgi"
