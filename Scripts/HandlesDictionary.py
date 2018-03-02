@@ -8,7 +8,7 @@ import json
 bag=[]
 output_file_name=input("Type the output file name this way NameYouWant.csv:")
 
-input_file_name=input("File name with formart (.txt, .json, .csv, etc...):")
+input_file_name=input("File name with format (.txt):") #If the handle file was obtained with CallsByJEL.py script, the file format should be txt
 code:input("Type your code access:")
 
 f=open(input_file_name,"r+")
