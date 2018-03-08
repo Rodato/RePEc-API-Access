@@ -50,6 +50,6 @@ if len(no_response)!=0:
     No_R.close()
     print("Some hanldes did not have reference information, find it in ", no_response_file)
 else:
-    print("All handles had referencesm find it in ", output_file_name)
+    print("All handles had references, find it in ", output_file_name)
 
 print("¡Successful extraction!")
