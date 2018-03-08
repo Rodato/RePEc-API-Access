@@ -44,9 +44,9 @@ if __name__=="__main__":
 
         counter=counter+1
         if counter==200:
+            print("Sleeping for 120 seconds")
             time2.sleep(120)
             counter=0
-            print("Sleeping for 120 seconds")
 
 
 full_bag=pd.DataFrame(bag)
