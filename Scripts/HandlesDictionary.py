@@ -12,7 +12,7 @@ counter=0
 input_file_name=input("File name with format (.txt):") #If the handle file was obtained with CallsByJEL.py script, the file format should be txt
 code:input("Type your code access:")
 output_file_name=input("Type the output file name this way NameYouWant.csv:")
-no_response_file=inpur("Output file name no response handles (.txt):")
+no_response_file=input("Output file name no response handles (.txt):")
 
 f=open(input_file_name,"r+")
 lines=f.read().split(',')
