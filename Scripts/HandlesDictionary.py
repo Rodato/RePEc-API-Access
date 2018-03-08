@@ -4,6 +4,7 @@
 import requests as rq
 import pandas as pd
 import json
+import simplejson as sj
 
 bag=[]
 no_reponse=[]
