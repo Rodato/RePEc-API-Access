@@ -3,12 +3,16 @@
 
 import requests as rq
 import pandas as pd
-import json
 import simplejson as sj
+import time as time2
+import json
 
 bag=[]
 no_reponse=[]
 counter=0
+total_handles=0
+handles_answered=0
+handles_noanswered=0
 
 input_file_name=input("File name with format (.txt):") #If the handle file was obtained with CallsByJEL.py script, the file format should be txt
 code:input("Type your code access:")
@@ -29,16 +33,20 @@ if __name__=="__main__":
         response = rq.get(url,params=payload)
         print ("url call form:", response.url)
         content = response.content
+        total_handles=total_handles+1
         if len(content)==0:
             no_response.append(handle)
+            handles_noanswered=handles_noanswered+1
         else:
             data=json.loads(content)
             bag=bag+data
-            counter=counter+1
-            if counter==200:
-                time.sleep(120)
-                counter=0
-                print("Sleeping for 120 seconds")
+            handles_answered=handles_answered+1
+
+        counter=counter+1
+        if counter==200:
+            time2.sleep(120)
+            counter=0
+            print("Sleeping for 120 seconds")
 
 
 full_bag=pd.DataFrame(bag)
@@ -48,8 +56,11 @@ if len(no_response)!=0:
     No_R = open(no_response_file, 'w')
     sj.dump(no_response, No_R)
     No_R.close()
-    print("Some hanldes did not have reference information, find it in ", no_response_file)
+    print("Some handles did not have reference information, find it in ", no_response_file)
+    print("Handles without reference: ", handles_noanswered)
+    print("Handles with reference: ", handles_answered)
 else:
     print("All handles had references, find it in ", output_file_name)
 
+print("Total handles: ", total_handles)
 print("¡Successful extraction!")
