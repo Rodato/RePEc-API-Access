@@ -9,7 +9,7 @@ code=input("Type your access code:")
 offset=input("offset:")
 offset=int(offset)
 JEL=input("JEL code:")
-File_name=input("Output file name (NameYouWant.txt):")
+output_file_name=input("Output file name (NameYouWant.txt):")
 
 
 if __name__ == "__main__":
@@ -46,7 +46,7 @@ if __name__ == "__main__":
         print("Wrong call")
         print(response.status_code, "verify this code in requests web site: http://docs.python-requests.org/en/master/")
 
-f = open(File_name, 'w')
+f = open(output_file_name, 'w')
 sj.dump(All_handles, f)
 f.close()
 

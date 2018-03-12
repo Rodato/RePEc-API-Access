@@ -3,7 +3,7 @@ import requests
 import json
 
 data=input("Input file name (.csv): ")
-code:input("Type your code access:")
+code=input("Type your code access:")
 output_file_name=input("Type the output file name this way NameYouWant.csv:")
 
 data_c=pd.read_csv(data)

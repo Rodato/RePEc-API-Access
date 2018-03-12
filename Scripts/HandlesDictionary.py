@@ -15,7 +15,7 @@ handles_answered=0
 handles_noanswered=0
 
 input_file_name=input("File name with format (.txt):") #If the handle file was obtained with CallsByJEL.py script, the file format should be txt
-code:input("Type your code access:")
+code=input("Type your code access:")
 output_file_name=input("Type the output file name this way NameYouWant.csv:")
 no_response_file=input("Output file name no response handles (.txt):")
 
