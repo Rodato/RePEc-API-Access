@@ -1,5 +1,5 @@
 import pandas as pd
-import requests
+import requests as rq
 import json
 
 data=input("Input file name (.csv): ")
@@ -16,3 +16,5 @@ if __name__=="__main__":
     url="https://api.repec.org/call.cgi"
     for handle in handlesbyjel:
         payload = {"code" : code, "getitemcitation" : handle, "repecservice" : "ideas"}
+        response = rq.get(url,params=payload)
+        print ("url call form:", response.url)
