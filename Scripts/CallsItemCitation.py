@@ -2,6 +2,7 @@
 
 import pandas as pd
 import requests as rq
+import time as time2
 import json
 
 data=input("Input file name (.csv): ")
@@ -35,6 +36,12 @@ if __name__=="__main__":
                 data.append(x)
                 citation_bag=citation_bag+data
                 h_citation=h_citation+1
+
+        counter=counter+1
+        if counter==250:
+            print("Sleeping for 120 seconds")
+            counter=0
+            time2.sleep(120)
 
 print("Handles without cites: ",no_h_citation)
 print("Handles with cites: ",h_citation)
