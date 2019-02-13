@@ -1,7 +1,6 @@
 import requests
 from pymongo import MongoClient
 import json
-from ast import literal_eval
 import time as time2
 
 i_f_n=input("Input file name without formart (.txt)):")
@@ -19,12 +18,12 @@ data=[]
 counter=0
 solicitude=0
 
-print("total solicitudes a hacer ", len(handles))
+print("Total solicitudes: ", len(handles))
 
 #Get the data into a list
 url="https://api.repec.org/call.cgi"
 for handle in handles:
-    payload = {"code" : "Y3f18KM3", "getref" : handle, "repecservice" : "ideas"}
+    payload = {"code" : " ", "getref" : handle, "repecservice" : "ideas"}
     response = requests.get(url,params=payload)
     paper_info = response.text
     solicitude=solicitude+1
@@ -42,8 +41,8 @@ for handle in handles:
 
 # Create connection to MongoDB
 client = MongoClient('localhost', 27017)
-db = client['EcoEmp_db']
-collection = db[i_f_n]
+db = client[' '] #DB name
+collection = db[' '] #Colletion name
 
 for i in data:
     d=json.loads(i)
